@@ -1,0 +1,1803 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adarsh Singh | Python Developer & DSA Specialist</title>
+  <meta name="description"
+    content="Portfolio of Adarsh Singh - Python Developer, DSA Specialist, and Computer Science Student. Specializing in backend engineering, scalable APIs, and algorithmic problem solving." />
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              dark: '#030712',
+              card: 'rgba(10, 15, 30, 0.7)',
+              blue: '#3b82f6',
+              yellow: '#eab308',
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse-slow 8s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            'pulse-slow': {
+              '0%, 100%': { opacity: '0.2', transform: 'scale(1)' },
+              '50%': { opacity: '0.4', transform: 'scale(1.05)' },
+            },
+            'float': {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      color-scheme: dark;
+      background-color: #030712;
+    }
+
+    body {
+      background-color: #030712;
+      color: #f3f4f6;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Custom modern scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #030712;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1f2937;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #374151;
+    }
+
+    .glass-panel {
+      background: rgba(10, 15, 30, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-[#030712] text-gray-100 selection:bg-yellow-400 selection:text-black">
+
+  <!-- Background Glows -->
+  <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[140px] pointer-events-none">
+  </div>
+  <div
+    class="fixed top-1/3 right-1/4 w-[450px] h-[450px] bg-yellow-500/5 rounded-full blur-[140px] pointer-events-none">
+  </div>
+  <div
+    class="fixed bottom-1/4 left-10 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[160px] pointer-events-none">
+  </div>
+
+  <div class="min-h-screen bg-grid-pattern relative">
+
+    <!-- STICKY NAVBAR -->
+    <header class="sticky top-0 z-50 w-full glass-panel border-b border-white/5 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+
+          <!-- Logo -->
+          <a href="#home" class="flex items-center space-x-3 group">
+            <div
+              class="w-9 h-9 rounded-lg bg-gradient-to-tr from-blue-500 to-yellow-400 p-[1.5px] flex items-center justify-center shadow-lg group-hover:scale-105 transition-all">
+              <div class="w-full h-full bg-[#030712] rounded-[6px] flex items-center justify-center">
+                <span
+                  class="font-mono text-xs font-bold bg-gradient-to-r from-blue-400 to-yellow-300 bg-clip-text text-transparent">AS</span>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-bold text-base tracking-tight text-white group-hover:text-blue-400 transition-colors">
+                Adarsh Singh
+              </span>
+              <span class="text-[10px] font-mono text-yellow-400/90 tracking-wider uppercase">
+                Python &amp; DSA Portfolio
+              </span>
+            </div>
+          </a>
+
+          <!-- Desktop Nav -->
+          <nav class="hidden md:flex items-center space-x-1">
+            <a href="#home"
+              class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide text-gray-300 hover:text-white hover:bg-white/5 transition-all">Home</a>
+            <a href="#about"
+              class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide text-gray-300 hover:text-white hover:bg-white/5 transition-all">About</a>
+            <a href="#skills"
+              class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide text-gray-300 hover:text-white hover:bg-white/5 transition-all">Skills</a>
+            <a href="#dsa"
+              class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide text-gray-300 hover:text-white hover:bg-white/5 transition-all">DSA
+              Simulator</a>
+            <a href="#projects"
+              class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide text-gray-300 hover:text-white hover:bg-white/5 transition-all">Projects</a>
+            <a href="#resume"
+              class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide text-gray-300 hover:text-white hover:bg-white/5 transition-all">Resume</a>
+            <a href="#contact"
+              class="nav-link px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide text-gray-300 hover:text-white hover:bg-white/5 transition-all">Contact</a>
+          </nav>
+
+          <!-- Resume Button -->
+          <div class="hidden md:flex items-center space-x-3">
+            <a href="#resume"
+              class="inline-flex items-center space-x-1.5 px-4 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-xs font-semibold text-white transition-all shadow-md hover:shadow-blue-500/20">
+              <i data-lucide="file-text" class="w-3.5 h-3.5 text-yellow-300"></i>
+              <span>Get Resume</span>
+            </a>
+          </div>
+
+          <!-- Mobile Menu Toggle -->
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-btn"
+              class="p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none"
+              aria-label="Toggle navigation menu">
+              <i data-lucide="menu" class="h-6 w-6"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Nav Menu -->
+      <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-white/10 px-4 pt-2 pb-4 space-y-1">
+        <a href="#home"
+          class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Home</a>
+        <a href="#about"
+          class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">About</a>
+        <a href="#skills"
+          class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Skills</a>
+        <a href="#dsa"
+          class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">DSA
+          Simulator</a>
+        <a href="#projects"
+          class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
+        <a href="#resume"
+          class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Resume
+          Hub</a>
+        <a href="#contact"
+          class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Contact
+          Me</a>
+        <div class="pt-2">
+          <a href="#resume"
+            class="mobile-nav-link w-full text-center block px-4 py-2 rounded-md bg-gradient-to-r from-blue-600 to-yellow-500 text-white font-medium text-sm">
+            Download Resume
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-12 pb-20 md:py-28 flex items-center">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+          <!-- Left Column: Introduction -->
+          <div class="lg:col-span-7 space-y-6 text-left">
+
+            <!-- Badge -->
+            <div
+              class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-950/80 border border-blue-500/30 text-xs text-blue-300 font-mono">
+              <span class="flex h-2 w-2 rounded-full bg-yellow-400 animate-pulse"></span>
+              <span>Active Python Developer &amp; DSA Specialist</span>
+            </div>
+
+            <div class="space-y-3">
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white">
+                Hi, I'm <span
+                  class="bg-gradient-to-r from-blue-400 via-blue-500 to-yellow-400 bg-clip-text text-transparent">Adarsh
+                  Singh</span>
+              </h1>
+              <p class="text-2xl sm:text-3xl font-bold font-mono text-gray-300 flex items-center flex-wrap gap-2">
+                Python Developer <span class="text-yellow-400">|</span> <span class="text-blue-400">DSA
+                  Specialist</span>
+              </p>
+            </div>
+
+            <p class="text-base sm:text-lg text-gray-400 max-w-xl leading-relaxed">
+              I build high-performance, scalable applications with Python and strengthen my analytical problem-solving
+              skills through rigorous practice of Data Structures &amp; Algorithms.
+            </p>
+
+            <!-- Stats badges inside Hero -->
+            <div class="grid grid-cols-3 gap-3 pt-2 max-w-md">
+              <div class="bg-[#0b1329] border border-blue-500/15 rounded-xl p-3 text-center">
+                <div class="text-xl sm:text-2xl font-bold font-mono text-yellow-400">500+</div>
+                <div class="text-[10px] uppercase text-gray-400 tracking-wider">DSA Solved</div>
+              </div>
+              <div class="bg-[#0b1329] border border-blue-500/15 rounded-xl p-3 text-center">
+                <div class="text-xl sm:text-2xl font-bold font-mono text-blue-400">12+</div>
+                <div class="text-[10px] uppercase text-gray-400 tracking-wider">Custom Projects</div>
+              </div>
+              <div class="bg-[#0b1329] border border-blue-500/15 rounded-xl p-3 text-center">
+                <div class="text-xl sm:text-2xl font-bold font-mono text-purple-400">A+</div>
+                <div class="text-[10px] uppercase text-gray-400 tracking-wider">CS Student</div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a href="#projects"
+                class="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-500 hover:to-blue-700 text-sm font-semibold text-white transition-all shadow-lg hover:shadow-blue-500/20 flex items-center space-x-2 group">
+                <span>View My Projects</span>
+                <i data-lucide="arrow-right"
+                  class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+              </a>
+
+              <a href="#resume"
+                class="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-sm font-semibold text-gray-200 hover:text-white transition-all border border-white/10 flex items-center space-x-2">
+                <i data-lucide="download" class="w-4 h-4 text-yellow-400"></i>
+                <span>Download Resume</span>
+              </a>
+            </div>
+
+            <!-- Shell tag -->
+            <div class="pt-2 text-xs font-mono text-gray-500 flex items-center space-x-3">
+              <span>$ python --version</span>
+              <span class="text-blue-400">Python 3.11.x</span>
+              <span>$ is_passionate = True</span>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Interactive Terminal Visual -->
+          <div class="lg:col-span-5 relative">
+            <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 to-yellow-400 opacity-20 blur-xl">
+            </div>
+
+            <div class="relative rounded-2xl glass-panel border border-white/10 overflow-hidden shadow-2xl">
+
+              <!-- Terminal Header -->
+              <div class="bg-slate-950/80 px-4 py-3 flex items-center justify-between border-b border-white/5">
+                <div class="flex items-center space-x-2">
+                  <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                  <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <span class="text-xs font-mono text-gray-400 flex items-center space-x-1.5">
+                  <i data-lucide="terminal" class="w-3.5 h-3.5 text-blue-400"></i>
+                  <span>developer_env.py</span>
+                </span>
+                <div class="w-4"></div>
+              </div>
+
+              <!-- Terminal Content -->
+              <div class="p-5 font-mono text-xs sm:text-sm space-y-4 text-left bg-slate-950/40">
+                <div class="space-y-1">
+                  <p class="text-gray-500"># Developer Profile Instance</p>
+                  <p class="text-blue-300">class <span class="text-yellow-300">PythonDeveloper</span>:</p>
+                  <p class="text-blue-400">&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self):</p>
+                  <p class="text-purple-300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.name = <span
+                      class="text-emerald-400">"Adarsh Singh"</span></p>
+                  <p class="text-purple-300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.focus_areas = [<span
+                      class="text-emerald-400">"Backend"</span>, <span class="text-emerald-400">"DSA"</span>, <span
+                      class="text-emerald-400">"APIs"</span>]</p>
+                  <p class="text-purple-300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.primary_lang = <span
+                      class="text-emerald-400">"Python"</span></p>
+                  <p class="text-purple-300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.dsa_platforms = [<span
+                      class="text-emerald-400">"LeetCode"</span>, <span class="text-emerald-400">"Codeforces"</span>]
+                  </p>
+                </div>
+
+                <div class="space-y-1">
+                  <p class="text-blue-400">&nbsp;&nbsp;&nbsp;&nbsp;def is_hirable(self) -&gt; bool:</p>
+                  <p class="text-purple-300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return
+                    len(self.focus_areas) &gt;= 3 and self.primary_lang == <span
+                      class="text-emerald-400">"Python"</span></p>
+                </div>
+
+                <div class="pt-2 border-t border-white/5 space-y-1">
+                  <p class="text-gray-400">&gt;&gt;&gt; adarsh = PythonDeveloper()</p>
+                  <p class="text-gray-400">&gt;&gt;&gt; print(f"Is Adarsh hirable? {'Yes!' if True else 'No'}")</p>
+                  <p class="text-yellow-400 font-bold">"Is Adarsh hirable? Yes!"</p>
+                </div>
+
+                <div class="pt-4 flex flex-wrap gap-1.5 border-t border-white/5">
+                  <span class="px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 text-[10px]">#FastAPI</span>
+                  <span class="px-2 py-0.5 rounded bg-yellow-500/10 text-yellow-400 text-[10px]">#Algorithms</span>
+                  <span class="px-2 py-0.5 rounded bg-purple-500/10 text-purple-400 text-[10px]">#Databases</span>
+                  <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px]">#CleanCode</span>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Decorative Floating Python Stack Badge -->
+            <div
+              class="absolute -bottom-5 -right-3 bg-gradient-to-tr from-[#306998] to-[#FFD43B] p-0.5 rounded-xl shadow-lg animate-float">
+              <div class="bg-[#030712] px-3 py-2 rounded-xl flex items-center space-x-2 text-xs font-mono">
+                <span class="text-yellow-400 font-bold">Python</span>
+                <span class="text-blue-400">&amp;</span>
+                <span class="text-purple-300">DSA Stack</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="py-20 bg-[#060b18]/60 border-y border-white/5 scroll-mt-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+          <div
+            class="inline-flex items-center space-x-1 text-blue-400 text-xs font-semibold tracking-wider uppercase bg-blue-500/10 px-3 py-1 rounded-full">
+            <i data-lucide="user" class="w-3 h-3"></i>
+            <span>Professional Identity</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">About Adarsh Singh</h2>
+          <div class="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-yellow-400 mx-auto rounded-full mt-2"></div>
+          <p class="text-gray-400 text-sm sm:text-base pt-2">
+            A dedicated Computer Science student focusing on building optimized Python backends and mastering
+            algorithmic complexity.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+
+          <!-- Left Box: Profile Card with Real Photo in Decent Good Size & Interactive Stats -->
+          <div
+            class="lg:col-span-5 flex flex-col justify-between p-6 sm:p-7 rounded-2xl glass-panel border border-white/10 relative overflow-hidden group">
+
+            <div class="space-y-6 relative">
+
+              <!-- Full Portrait Photo with Decent Good Size -->
+              <div class="relative mx-auto w-full max-w-[340px] sm:max-w-[360px] group/photo">
+                <!-- Ambient Glow -->
+                <div
+                  class="absolute -inset-1 bg-gradient-to-tr from-blue-500 via-indigo-500 to-yellow-400 rounded-2xl blur-md opacity-40 group-hover/photo:opacity-75 transition duration-500">
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden border border-white/15 bg-[#0b1329] shadow-2xl">
+                  <img src="profile.jpg" alt="Adarsh Singh - Python Developer & DSA Specialist"
+                    class="w-full h-80 sm:h-96 object-cover object-top transition-transform duration-700 ease-out group-hover/photo:scale-[1.03]"
+                    onerror="this.src='public/profile.jpg'" />
+
+                  <!-- Gradient Overlay for bottom text & badges -->
+                  <div
+                    class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#030712] via-[#030712]/80 to-transparent pt-12 pb-4 px-4 text-left">
+                    <div class="flex items-end justify-between">
+                      <div>
+                        <h3 class="text-xl font-extrabold text-white tracking-tight">
+                          Adarsh Singh
+                        </h3>
+                        <p class="text-xs text-yellow-400 font-mono font-semibold">
+                          Python Developer &amp; DSA Specialist
+                        </p>
+                      </div>
+                      <span
+                        class="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 backdrop-blur-md">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1.5"></span>
+                        Available
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Floating Location Tag Top-Right -->
+                  <div class="absolute top-3 right-3">
+                    <span
+                      class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg text-[11px] font-mono font-medium bg-[#030712]/85 text-blue-300 border border-white/15 backdrop-blur-md shadow-lg">
+                      <i data-lucide="map-pin" class="w-3 h-3 text-yellow-400"></i>
+                      <span>India</span>
+                    </span>
+                  </div>
+
+                  <!-- Floating Role Tag Top-Left -->
+                  <div class="absolute top-3 left-3">
+                    <span
+                      class="inline-flex items-center space-x-1 px-2.5 py-1 rounded-lg text-[11px] font-mono font-medium bg-[#030712]/85 text-yellow-300 border border-white/15 backdrop-blur-md shadow-lg">
+                      <i data-lucide="user" class="w-3 h-3 text-blue-400"></i>
+                      <span>CS Student</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-3 text-sm text-gray-300 leading-relaxed text-left">
+                <p>
+                  I am highly passionate about deep diving into Computer Science fundamentals. Rather than focusing on a
+                  broad range of superficial topics, my primary identity is rooted in <strong>Python Backend
+                    Engineering</strong> and rigorous practice of <strong>Data Structures &amp; Algorithms</strong>.
+                </p>
+                <p>
+                  I strive to construct clean RESTful APIs that stand the test of high user traffic, and I constantly
+                  challenge myself to write code with optimal Big-O time and space complexities.
+                </p>
+              </div>
+
+              <!-- Core Focus Tags -->
+              <div class="space-y-2">
+                <span class="text-xs font-semibold text-gray-400 block uppercase tracking-wider text-left">Primary
+                  Architecture Focus:</span>
+                <div class="flex flex-wrap gap-2 justify-start">
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-300 text-xs border border-blue-500/20 font-mono">Python
+                    Ecosystem</span>
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-yellow-500/10 text-yellow-300 text-xs border border-yellow-500/20 font-mono">High-Efficiency
+                    DSA</span>
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 text-xs border border-purple-500/20 font-mono">Backend
+                    Engineering</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Click-to-Test Stat Interactions -->
+            <div class="mt-8 pt-6 border-t border-white/5 space-y-4 text-left">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-mono text-gray-400 uppercase tracking-widest">Interactive Stats (Click to test
+                  reactivity)</span>
+                <span
+                  class="inline-flex items-center space-x-1 text-[10px] text-yellow-400 bg-yellow-400/10 px-1.5 py-0.5 rounded">
+                  <i data-lucide="sparkles" class="w-2.5 h-2.5"></i>
+                  <span>Real-time</span>
+                </span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+
+                <button onclick="incrementStat('solved', 1)"
+                  class="p-3 rounded-xl bg-slate-900/80 border border-white/5 hover:border-yellow-400/40 text-left transition-all hover:-translate-y-0.5 group cursor-pointer"
+                  title="Click to increment">
+                  <div class="text-xs text-gray-400 font-medium group-hover:text-yellow-300 transition-colors">Problems
+                    Solved</div>
+                  <div
+                    class="text-xl sm:text-2xl font-bold font-mono text-white mt-1 flex items-center justify-between">
+                    <span id="stat-solved">540+</span>
+                    <span
+                      class="text-[10px] bg-yellow-400/10 text-yellow-400 px-1.5 py-0.5 rounded font-sans font-normal">+1</span>
+                  </div>
+                </button>
+
+                <button onclick="incrementStat('projects', 1)"
+                  class="p-3 rounded-xl bg-slate-900/80 border border-white/5 hover:border-blue-400/40 text-left transition-all hover:-translate-y-0.5 group cursor-pointer"
+                  title="Click to increment">
+                  <div class="text-xs text-gray-400 font-medium group-hover:text-blue-300 transition-colors">Projects
+                    Built</div>
+                  <div
+                    class="text-xl sm:text-2xl font-bold font-mono text-white mt-1 flex items-center justify-between">
+                    <span id="stat-projects">14+</span>
+                    <span
+                      class="text-[10px] bg-blue-400/10 text-blue-400 px-1.5 py-0.5 rounded font-sans font-normal">+1</span>
+                  </div>
+                </button>
+
+                <button onclick="incrementStat('skills', 1)"
+                  class="p-3 rounded-xl bg-slate-900/80 border border-white/5 hover:border-purple-400/40 text-left transition-all hover:-translate-y-0.5 group cursor-pointer"
+                  title="Click to increment">
+                  <div class="text-xs text-gray-400 font-medium group-hover:text-purple-300 transition-colors">Tech
+                    Learned</div>
+                  <div
+                    class="text-xl sm:text-2xl font-bold font-mono text-white mt-1 flex items-center justify-between">
+                    <span id="stat-skills">18+</span>
+                    <span
+                      class="text-[10px] bg-purple-400/10 text-purple-400 px-1.5 py-0.5 rounded font-sans font-normal">+1</span>
+                  </div>
+                </button>
+
+                <button onclick="incrementStat('hours', 10)"
+                  class="p-3 rounded-xl bg-slate-900/80 border border-white/5 hover:border-emerald-400/40 text-left transition-all hover:-translate-y-0.5 group cursor-pointer"
+                  title="Click to increment">
+                  <div class="text-xs text-gray-400 font-medium group-hover:text-emerald-300 transition-colors">Coding
+                    Hours</div>
+                  <div
+                    class="text-xl sm:text-2xl font-bold font-mono text-white mt-1 flex items-center justify-between">
+                    <span id="stat-hours">2200+</span>
+                    <span
+                      class="text-[10px] bg-emerald-400/10 text-emerald-400 px-1.5 py-0.5 rounded font-sans font-normal">+10</span>
+                  </div>
+                </button>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Box: Core Strengths / Highlights -->
+          <div class="lg:col-span-7 flex flex-col justify-between space-y-4">
+
+            <div class="p-6 rounded-2xl glass-panel border border-white/10 flex-1">
+              <h4 class="text-lg font-bold text-white mb-4 flex items-center space-x-2 text-left">
+                <i data-lucide="award" class="w-5 h-5 text-yellow-400"></i>
+                <span>Academic &amp; Architecture Focus</span>
+              </h4>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <div
+                  class="p-4 rounded-xl border border-blue-500/20 bg-blue-500/5 hover:border-blue-500/40 transition-all duration-300 text-left">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-bold text-sm text-white">Python Development</span>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-blue-400/10 text-blue-400">Focus
+                      #1</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed">Advanced implementation of dictionaries, generator
+                    structures, complex file handling, and robust OOP concepts.</p>
+                </div>
+
+                <div
+                  class="p-4 rounded-xl border border-yellow-500/20 bg-yellow-500/5 hover:border-yellow-500/40 transition-all duration-300 text-left">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-bold text-sm text-white">Data Structures &amp; Algorithms</span>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-yellow-400/10 text-yellow-400">Focus
+                      #2</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed">Strong focus on trees, graphs, dynamic programming,
+                    backtracking, sliding window, and search optimizations.</p>
+                </div>
+
+                <div
+                  class="p-4 rounded-xl border border-purple-500/20 bg-purple-500/5 hover:border-purple-500/40 transition-all duration-300 text-left">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-bold text-sm text-white">Problem Solving</span>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-purple-400/10 text-purple-400">Focus
+                      #3</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed">Consistently identifying edge cases, optimal
+                    complexities, and applying correct mathematical models.</p>
+                </div>
+
+                <div
+                  class="p-4 rounded-xl border border-emerald-500/20 bg-emerald-500/5 hover:border-emerald-500/40 transition-all duration-300 text-left">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-bold text-sm text-white">Backend Development</span>
+                    <span
+                      class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-400/10 text-emerald-400">Focus
+                      #4</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed">Structuring clean server routes with asynchronous
+                    handlers in FastAPI and modular blueprinted Flask templates.</p>
+                </div>
+
+                <div
+                  class="p-4 rounded-xl border border-orange-500/20 bg-orange-500/5 hover:border-orange-500/40 transition-all duration-300 text-left">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-bold text-sm text-white">REST APIs</span>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-orange-400/10 text-orange-400">Focus
+                      #5</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed">Designing status-code-compliant endpoints with strict
+                    validation, clean models, and token authorizations.</p>
+                </div>
+
+                <div
+                  class="p-4 rounded-xl border border-teal-500/20 bg-teal-500/5 hover:border-teal-500/40 transition-all duration-300 text-left">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-bold text-sm text-white">Database Fundamentals</span>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-teal-400/10 text-teal-400">Focus
+                      #6</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed">Formulating normalized MySQL relational tables and
+                    high-performance MongoDB document collections.</p>
+                </div>
+
+                <div
+                  class="p-4 rounded-xl border border-pink-500/20 bg-pink-500/5 hover:border-pink-500/40 transition-all duration-300 text-left md:col-span-2">
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-bold text-sm text-white">Object-Oriented Programming (OOP)</span>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-pink-400/10 text-pink-400">Focus
+                      #7</span>
+                  </div>
+                  <p class="text-xs text-gray-400 leading-relaxed">Modeling real-world hierarchies with inheritance,
+                    clean encapsulation, polymorphism, and abstract classes.</p>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Quick Info Box -->
+            <div
+              class="p-4 rounded-xl bg-gradient-to-r from-blue-950/40 to-yellow-950/20 border border-blue-500/10 flex items-center space-x-3 text-left">
+              <i data-lucide="info" class="w-5 h-5 text-yellow-400 flex-shrink-0"></i>
+              <p class="text-xs text-gray-300">
+                <strong>Applying for Roles:</strong> Open to software developer internships, junior python backend
+                developer, and system engineering positions. Eager to contribute starting today.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-20 scroll-mt-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
+          <div
+            class="inline-flex items-center space-x-1 text-yellow-400 text-xs font-semibold tracking-wider uppercase bg-yellow-500/10 px-3 py-1 rounded-full">
+            <i data-lucide="code-2" class="w-3 h-3"></i>
+            <span>Technical Stack</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Interactive Skill Matrix</h2>
+          <div class="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-yellow-400 mx-auto rounded-full mt-2"></div>
+          <p class="text-gray-400 text-sm sm:text-base pt-2">
+            Explore the exact technical capabilities verified by real problem solving and academic curriculum.
+          </p>
+        </div>
+
+        <!-- Skills Filter Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10" id="skill-filter-tabs">
+          <button onclick="filterSkills('All')"
+            class="skill-tab-btn active px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md cursor-pointer">All</button>
+          <button onclick="filterSkills('Programming')"
+            class="skill-tab-btn px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-[#0a0f1d] hover:bg-slate-800 text-gray-400 hover:text-white border border-white/5 cursor-pointer">Programming</button>
+          <button onclick="filterSkills('DSA')"
+            class="skill-tab-btn px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-[#0a0f1d] hover:bg-slate-800 text-gray-400 hover:text-white border border-white/5 cursor-pointer">DSA</button>
+          <button onclick="filterSkills('Backend')"
+            class="skill-tab-btn px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-[#0a0f1d] hover:bg-slate-800 text-gray-400 hover:text-white border border-white/5 cursor-pointer">Backend</button>
+          <button onclick="filterSkills('Database')"
+            class="skill-tab-btn px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-[#0a0f1d] hover:bg-slate-800 text-gray-400 hover:text-white border border-white/5 cursor-pointer">Database</button>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 text-left"
+          id="skills-container">
+          <!-- Will be populated dynamically by script -->
+        </div>
+
+        <div
+          class="mt-8 p-4 rounded-xl glass-panel text-center max-w-2xl mx-auto border border-yellow-500/10 text-xs text-gray-400 font-mono">
+          💡 <span class="text-yellow-300">Note:</span> Programming skills are verified with <strong>Python</strong> as
+          primary. If applicable, basic <strong>C/C++</strong> is utilized for academic computer science courses.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DSA & PROBLEM SOLVING SECTION -->
+    <section id="dsa" class="py-20 bg-[#060b18]/60 border-y border-white/5 scroll-mt-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+          <div
+            class="inline-flex items-center space-x-1 text-purple-400 text-xs font-semibold tracking-wider uppercase bg-purple-500/10 px-3 py-1 rounded-full">
+            <i data-lucide="terminal" class="w-3 h-3"></i>
+            <span>Rigorous Problem Solving</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">DSA &amp; Problem Solving Terminal</h2>
+          <div class="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-yellow-400 mx-auto rounded-full mt-2"></div>
+          <p class="text-gray-400 text-sm sm:text-base pt-2">
+            My problem-solving approach is highly analytical. Use this live simulator to trace algorithms step-by-step!
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+          <!-- Left: Simulation Control Center -->
+          <div
+            class="lg:col-span-7 flex flex-col justify-between p-6 sm:p-8 rounded-2xl glass-panel border border-white/10 text-left relative overflow-hidden">
+
+            <div class="relative space-y-6">
+
+              <!-- Simulator header -->
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <span class="text-xs font-mono text-yellow-400 uppercase tracking-widest block">Interactive Live
+                    Simulator</span>
+                  <h3 class="text-xl font-bold text-white mt-1">Trace Python DSA Execution</h3>
+                </div>
+
+                <!-- Selector Tabs -->
+                <div class="flex flex-wrap gap-1 bg-slate-950 p-1 rounded-lg border border-white/5">
+                  <button onclick="setSimulation(0)" id="dsa-btn-0"
+                    class="px-3 py-1 rounded text-[11px] font-mono font-bold bg-blue-600 text-white shadow cursor-pointer">BinarySearch</button>
+                  <button onclick="setSimulation(1)" id="dsa-btn-1"
+                    class="px-3 py-1 rounded text-[11px] font-mono font-bold text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer">Partition</button>
+                  <button onclick="setSimulation(2)" id="dsa-btn-2"
+                    class="px-3 py-1 rounded text-[11px] font-mono font-bold text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer">Dijkstra</button>
+                </div>
+              </div>
+
+              <!-- Code box -->
+              <div class="p-4 rounded-xl bg-slate-950 border border-white/10 font-mono text-xs text-gray-300">
+                <div class="flex items-center justify-between pb-2 mb-3 border-b border-white/5">
+                  <span class="text-yellow-400 font-bold" id="dsa-name">Binary Search (Python)</span>
+                  <span class="text-blue-400 font-mono" id="dsa-complexity">Time: O(log N) | Space: O(1)</span>
+                </div>
+                <pre class="overflow-x-auto text-[11px] sm:text-xs leading-relaxed max-h-56" id="dsa-code"></pre>
+              </div>
+
+              <!-- Simulation Step Box -->
+              <div class="p-4 rounded-xl bg-blue-950/40 border border-blue-500/20">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-mono text-blue-300 font-bold" id="dsa-step-count">Execution Step 1 of
+                    4</span>
+                  <span class="text-[10px] bg-yellow-400/10 text-yellow-400 px-2 py-0.5 rounded font-mono">Running
+                    Code</span>
+                </div>
+
+                <!-- Interactive Visualized Array -->
+                <div class="flex flex-wrap gap-1.5 my-3 justify-center bg-slate-950 p-3 rounded-lg"
+                  id="dsa-visual-array"></div>
+
+                <p class="text-xs text-gray-300 min-h-[3rem] leading-relaxed" id="dsa-step-desc"></p>
+              </div>
+
+            </div>
+
+            <!-- Stepper Controller -->
+            <div class="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div class="flex items-center space-x-2">
+                <button onclick="prevDsaStep()"
+                  class="p-2 rounded bg-slate-900 border border-white/10 text-gray-300 hover:text-white hover:bg-slate-800 transition-colors text-xs font-mono flex items-center space-x-1 cursor-pointer">
+                  <span>&larr; Prev</span>
+                </button>
+                <button onclick="nextDsaStep()"
+                  class="p-2 rounded bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-500 hover:to-blue-600 transition-colors text-xs font-mono flex items-center space-x-1 cursor-pointer">
+                  <i data-lucide="play" class="w-3 h-3 text-yellow-300"></i>
+                  <span>Next Step &rarr;</span>
+                </button>
+                <button onclick="resetDsaStep()"
+                  class="p-2 rounded bg-slate-950 border border-white/5 text-gray-500 hover:text-gray-300 text-xs cursor-pointer"
+                  title="Reset Simulation">
+                  <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+
+              <div class="text-[11px] font-mono text-gray-400">
+                🎯 Click <span class="text-yellow-400">Next Step</span> to trace index updates.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: Coding Platform Statistics & Contribution Graph -->
+          <div class="lg:col-span-5 flex flex-col justify-between space-y-6 text-left">
+
+            <div class="p-6 rounded-2xl glass-panel border border-white/10 flex-1 space-y-6">
+
+              <h4 class="text-base font-bold text-white uppercase tracking-wider font-mono flex items-center space-x-2">
+                <i data-lucide="cpu" class="w-4 h-4 text-yellow-400"></i>
+                <span>Coding Platforms</span>
+              </h4>
+
+              <div class="space-y-4">
+
+                <!-- LeetCode -->
+                <div
+                  class="p-3.5 rounded-xl bg-slate-950/80 border border-yellow-500/10 hover:border-yellow-500/30 transition-all">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <div class="flex items-center space-x-2">
+                      <span class="text-base">🔶</span>
+                      <span class="font-bold text-xs text-gray-200">LeetCode</span>
+                    </div>
+                    <span class="text-[10px] font-mono bg-yellow-400/10 text-yellow-400 px-2 py-0.5 rounded">Active
+                      Solver</span>
+                  </div>
+                  <div class="grid grid-cols-3 gap-2 text-center text-xs mt-2 pt-2 border-t border-white/5">
+                    <div>
+                      <div class="text-gray-400 text-[10px]">Solved</div>
+                      <div class="font-mono font-bold text-white text-sm">450+</div>
+                    </div>
+                    <div>
+                      <div class="text-gray-400 text-[10px]">Easy/Med</div>
+                      <div class="font-mono font-bold text-emerald-400 text-xs">400+</div>
+                    </div>
+                    <div>
+                      <div class="text-gray-400 text-[10px]">Hard</div>
+                      <div class="font-mono font-bold text-red-400 text-xs">50+</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Codeforces -->
+                <div
+                  class="p-3.5 rounded-xl bg-slate-950/80 border border-blue-500/10 hover:border-blue-500/30 transition-all">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <div class="flex items-center space-x-2">
+                      <span class="text-base">🔵</span>
+                      <span class="font-bold text-xs text-gray-200">Codeforces</span>
+                    </div>
+                    <span
+                      class="text-[10px] font-mono bg-blue-400/10 text-blue-400 px-2 py-0.5 rounded">Enthusiast</span>
+                  </div>
+                  <div class="grid grid-cols-2 gap-2 text-center text-xs mt-2 pt-2 border-t border-white/5">
+                    <div>
+                      <div class="text-gray-400 text-[10px]">Contests Played</div>
+                      <div class="font-mono font-bold text-white">Academic</div>
+                    </div>
+                    <div>
+                      <div class="text-gray-400 text-[10px]">Focus Area</div>
+                      <div class="font-mono font-bold text-yellow-400">Greedy &amp; Math</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Simulated Heatmap -->
+              <div class="pt-2">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-xs font-mono text-gray-400">Active Coding Heatmap</span>
+                  <span class="text-[9px] text-gray-500">Last 12 Months</span>
+                </div>
+
+                <div class="grid grid-cols-12 gap-1 p-2 bg-slate-950 rounded-lg border border-white/5"
+                  id="heatmap-container">
+                  <!-- 48 tiles -->
+                </div>
+                <div class="flex items-center justify-between text-[9px] text-gray-500 mt-2 font-mono">
+                  <span>Less</span>
+                  <div class="flex items-center space-x-1">
+                    <span class="w-2.5 h-2.5 bg-[#0f172a] rounded-sm"></span>
+                    <span class="w-2.5 h-2.5 bg-blue-900/40 rounded-sm"></span>
+                    <span class="w-2.5 h-2.5 bg-blue-600 rounded-sm"></span>
+                    <span class="w-2.5 h-2.5 bg-yellow-500 rounded-sm"></span>
+                  </div>
+                  <span>More Active</span>
+                </div>
+              </div>
+
+              <!-- Playbook -->
+              <div class="p-3 rounded-lg bg-slate-900/60 text-xs text-gray-400 space-y-1.5 border border-white/5">
+                <strong class="text-white text-xs block">🧠 My Algorithmic Playbook:</strong>
+                <p class="text-[11px] leading-relaxed">
+                  1. Dry-run edge cases with minimal inputs.<br />
+                  2. Model with appropriate graph, pointer, or dynamic programming state.<br />
+                  3. Optimize time first, then memory.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-20 scroll-mt-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
+          <div
+            class="inline-flex items-center space-x-1 text-blue-400 text-xs font-semibold tracking-wider uppercase bg-blue-500/10 px-3 py-1 rounded-full">
+            <i data-lucide="briefcase" class="w-3 h-3"></i>
+            <span>Selected Portfolio Work</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Premium Python &amp; Backend Projects</h2>
+          <div class="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-yellow-400 mx-auto rounded-full mt-2"></div>
+          <p class="text-gray-400 text-sm sm:text-base pt-2">
+            High-quality backend implementations emphasizing clean routing, custom algorithms, and optimized database
+            performance.
+          </p>
+        </div>
+
+        <!-- Project Filters -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10" id="project-filter-tabs">
+          <button onclick="filterProjects('All')"
+            class="project-tab-btn active px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-gradient-to-r from-blue-600 to-yellow-500 text-white shadow-md cursor-pointer">All</button>
+          <button onclick="filterProjects('Backend')"
+            class="project-tab-btn px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-[#0a0f1d] hover:bg-slate-800 text-gray-400 hover:text-white border border-white/5 cursor-pointer">Backend</button>
+          <button onclick="filterProjects('DSA & Algorithms')"
+            class="project-tab-btn px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-[#0a0f1d] hover:bg-slate-800 text-gray-400 hover:text-white border border-white/5 cursor-pointer">DSA
+            &amp; Algorithms</button>
+          <button onclick="filterProjects('Database & Systems')"
+            class="project-tab-btn px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-[#0a0f1d] hover:bg-slate-800 text-gray-400 hover:text-white border border-white/5 cursor-pointer">Database
+            &amp; Systems</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left" id="projects-container">
+          <!-- Populated dynamically by script -->
+        </div>
+
+        <!-- Proposal Option -->
+        <div class="mt-12 p-6 rounded-2xl glass-panel text-center max-w-xl mx-auto border border-blue-500/10 space-y-3">
+          <i data-lucide="sparkles" class="w-6 h-6 text-yellow-400 mx-auto animate-pulse"></i>
+          <p class="text-sm font-semibold text-white">Have a specific Python Backend requirement?</p>
+          <p class="text-xs text-gray-400">
+            I am constantly designing custom algorithms and REST payloads. If you want a tailored coding prototype,
+            let's connect and discuss system architecture!
+          </p>
+          <a href="#contact"
+            class="inline-flex items-center space-x-1 text-xs text-blue-400 hover:text-blue-300 font-bold">
+            <span>Initiate System Proposal</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RECRUITER & RESUME HUB SECTION -->
+    <section id="resume" class="py-20 bg-[#060b18]/60 border-y border-white/5 scroll-mt-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
+          <div
+            class="inline-flex items-center space-x-1 text-blue-400 text-xs font-semibold tracking-wider uppercase bg-blue-500/10 px-3 py-1 rounded-full">
+            <i data-lucide="sliders" class="w-3 h-3"></i>
+            <span>Interactive Recruiter Suite</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Academic Resume &amp; Hub</h2>
+          <div class="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-yellow-400 mx-auto rounded-full mt-2"></div>
+          <p class="text-gray-400 text-sm sm:text-base pt-2">
+            Review my verified qualifications, ongoing coursework, and configure a tailored resume export.
+          </p>
+        </div>
+
+        <!-- Recruiter personalizer -->
+        <div class="mb-10 bg-slate-950/80 rounded-2xl border border-blue-500/10 p-5 max-w-4xl mx-auto text-left">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-4 border-b border-white/5">
+            <div class="space-y-1">
+              <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                <span>Recruiter Personalizer (Optional)</span>
+              </h3>
+              <p class="text-xs text-gray-400">Enter your name to generate a personalized greeting on my resume preview.
+              </p>
+            </div>
+            <button id="toggle-recruiter-btn" onclick="toggleRecruiterConfig()"
+              class="px-3 py-1.5 rounded bg-slate-900 hover:bg-slate-800 text-xs text-yellow-300 font-mono flex items-center space-x-1 border border-white/10 cursor-pointer">
+              <span>Expand Customizer</span>
+            </button>
+          </div>
+
+          <div id="recruiter-fields" class="hidden grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
+            <div class="space-y-2">
+              <label class="text-xs font-mono text-gray-300 block">Recruiter / Team Name</label>
+              <input type="text" id="recruiter-input-name" oninput="updateRecruiterPreview()"
+                placeholder="e.g. Google India Recruitment"
+                class="w-full p-2 rounded bg-slate-900 border border-white/10 text-xs text-white focus:border-blue-500 outline-none" />
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs font-mono text-gray-300 block">Custom Message Flag</label>
+              <input type="text" id="recruiter-input-msg" oninput="updateRecruiterPreview()"
+                placeholder="e.g. Hiring for Python Developer role"
+                class="w-full p-2 rounded bg-slate-900 border border-white/10 text-xs text-white focus:border-blue-500 outline-none" />
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch max-w-6xl mx-auto text-left">
+
+          <!-- Timeline Column -->
+          <div class="lg:col-span-7 space-y-6">
+            <h3 class="text-lg font-bold text-white flex items-center space-x-2">
+              <i data-lucide="book-open" class="w-5 h-5 text-blue-400"></i>
+              <span>Education &amp; Academic Focus</span>
+            </h3>
+
+            <div class="space-y-4">
+
+              <!-- Degree card -->
+              <div
+                class="p-5 rounded-xl bg-slate-950/80 border border-white/5 relative hover:border-blue-500/20 transition-all">
+                <span
+                  class="absolute top-4 right-4 text-[10px] font-mono text-yellow-400 bg-yellow-400/10 px-2 py-0.5 rounded">
+                  In Progress
+                </span>
+                <div class="space-y-1">
+                  <span class="text-xs text-blue-400 font-mono block">2023 - Present</span>
+                  <h4 class="font-bold text-white text-base">Bachelor of Computer Science &amp; Engineering</h4>
+                  <p class="text-xs text-gray-300">Computer Science Major Student</p>
+                </div>
+
+                <div class="mt-4 space-y-2 text-xs text-gray-400">
+                  <strong class="text-white block">Key Rigor &amp; Courses:</strong>
+                  <ul class="list-disc list-inside space-y-1 pl-1">
+                    <li>Advanced Algorithms and Data Structures</li>
+                    <li>Object-Oriented Programming (OOP) in Python</li>
+                    <li>Database Management Systems (MySQL, SQL)</li>
+                    <li>Operating Systems &amp; System APIs</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Self learning -->
+              <div
+                class="p-5 rounded-xl bg-slate-950/80 border border-white/5 relative hover:border-yellow-400/20 transition-all">
+                <span
+                  class="absolute top-4 right-4 text-[10px] font-mono text-blue-400 bg-blue-400/10 px-2 py-0.5 rounded">
+                  Verified Skill
+                </span>
+                <div class="space-y-1">
+                  <span class="text-xs text-yellow-400 font-mono block">2023 - Ongoing</span>
+                  <h4 class="font-bold text-white text-base">Self-Directed Algorithmic Rigor</h4>
+                  <p class="text-xs text-gray-300">Targeting Advanced Problem Solving Platforms</p>
+                </div>
+
+                <div class="mt-4 space-y-2 text-xs text-gray-400">
+                  <strong class="text-white block">Milestones Reached:</strong>
+                  <ul class="list-disc list-inside space-y-1 pl-1">
+                    <li>Completed 500+ solved algorithmic challenges across platforms</li>
+                    <li>Strong focus on dynamic arrays, linked nodes, trees, stack operations, and greedy paradigms</li>
+                    <li>Developed production-ready RESTful structures using Python backends</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Resume Print-Out Box -->
+          <div
+            class="lg:col-span-5 flex flex-col justify-between p-6 rounded-2xl bg-white text-gray-900 shadow-2xl relative overflow-hidden">
+
+            <!-- Accent bar -->
+            <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-600 to-yellow-400"></div>
+
+            <div class="space-y-4 pt-2">
+
+              <!-- Recruiter Greeting Badge -->
+              <div id="resume-recruiter-badge"
+                class="hidden p-2.5 rounded bg-blue-100 border-l-4 border-blue-600 text-[11px] font-mono text-blue-900">
+              </div>
+
+              <div class="text-center pb-3 border-b border-gray-200">
+                <h4 class="text-lg font-bold text-gray-950 uppercase tracking-tight">Adarsh Singh</h4>
+                <p class="text-[10px] font-mono text-blue-600 font-bold uppercase tracking-widest mt-0.5">
+                  Python Developer | DSA Specialist
+                </p>
+                <div class="flex justify-center space-x-2 text-[9px] text-gray-500 mt-1">
+                  <span>Python Backend Focus</span>
+                  <span>•</span>
+                  <span>CSE Major Student</span>
+                </div>
+              </div>
+
+              <div class="space-y-2 text-xs text-gray-700">
+                <div>
+                  <span class="text-[10px] uppercase font-bold text-gray-500 tracking-wider block">Core
+                    Competencies</span>
+                  <p class="text-[11px] text-gray-800">Python, FastAPI, Flask, Data Structures &amp; Algorithms, MySQL,
+                    REST APIs, Git</p>
+                </div>
+                <div>
+                  <span class="text-[10px] uppercase font-bold text-gray-500 tracking-wider block">Targeted
+                    Opportunities</span>
+                  <p class="text-[11px] text-gray-800">Software Developer Intern, Junior Python Backend Engineer</p>
+                </div>
+              </div>
+
+              <div class="p-3 bg-gray-50 rounded-lg border border-gray-200 text-xs">
+                <span class="font-bold text-gray-900 block mb-1">Key Achievements:</span>
+                <div class="grid grid-cols-2 gap-2 text-[10px] text-gray-600 font-mono">
+                  <div>• 500+ DSA Problems</div>
+                  <div>• 12+ Backend Repos</div>
+                  <div>• 95% Python Rigor</div>
+                  <div>• Verified OOP Modeling</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Download Button -->
+            <div class="mt-6 pt-4 border-t border-gray-200 space-y-2">
+              <button onclick="alert('Resume download initiated! Preparing PDF: Adarsh_Singh_Python_DSA_Resume.pdf.');"
+                class="w-full py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-all flex items-center justify-center space-x-2 shadow-lg cursor-pointer">
+                <i data-lucide="download" class="w-3.5 h-3.5 text-yellow-300"></i>
+                <span>Download Resume PDF</span>
+              </button>
+              <div class="text-center">
+                <span class="text-[9px] text-gray-500 block font-mono">
+                  * Authenticated resume parameters: ADARSH-PYTHON-DSA-2026
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 scroll-mt-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+          <div
+            class="inline-flex items-center space-x-1 text-yellow-400 text-xs font-semibold tracking-wider uppercase bg-yellow-500/10 px-3 py-1 rounded-full">
+            <i data-lucide="mail" class="w-3 h-3"></i>
+            <span>Get In Touch</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Let's Build Something Efficient</h2>
+          <div class="h-1.5 w-24 bg-gradient-to-r from-blue-500 to-yellow-400 mx-auto rounded-full mt-2"></div>
+          <p class="text-gray-400 text-sm sm:text-base pt-2">
+            Have an opening, internship, or a complex Python algorithmic problem? Shoot me a message now.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch max-w-5xl mx-auto">
+
+          <!-- Left Column: Direct Info & Social Panel -->
+          <div
+            class="lg:col-span-5 p-6 sm:p-8 rounded-2xl glass-panel border border-white/10 flex flex-col justify-between text-left">
+
+            <div class="space-y-6">
+
+              <div class="space-y-2">
+                <h3 class="text-lg font-bold text-white">Adarsh Singh</h3>
+                <p class="text-xs text-yellow-400 font-mono">Python Developer &amp; DSA Specialist</p>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                  Based in India, available for remote collaboration and developer interviews.
+                </p>
+              </div>
+
+              <!-- Direct methods -->
+              <div class="space-y-4 pt-2">
+
+                <div
+                  class="flex items-center space-x-3 p-3 rounded-xl bg-slate-950/60 border border-white/5 hover:border-blue-500/20 transition-all">
+                  <i data-lucide="mail" class="w-5 h-5 text-blue-400 flex-shrink-0"></i>
+                  <div class="min-w-0 flex-1">
+                    <div class="text-[10px] uppercase text-gray-400 tracking-wider">Email Direct Address</div>
+                    <a href="mailto:adarshsingh.dev@gmail.com"
+                      class="text-xs sm:text-sm font-bold text-white hover:text-blue-400 block truncate">
+                      adarshsingh.dev@gmail.com
+                    </a>
+                  </div>
+                  <button
+                    onclick="navigator.clipboard.writeText('adarshsingh.dev@gmail.com'); alert('Copied email to clipboard!');"
+                    class="text-[10px] bg-slate-900 text-gray-400 hover:text-white px-2 py-1 rounded cursor-pointer">
+                    Copy
+                  </button>
+                </div>
+
+                <div
+                  class="flex items-center space-x-3 p-3 rounded-xl bg-slate-950/60 border border-white/5 hover:border-yellow-400/20 transition-all">
+                  <span class="text-yellow-400 flex-shrink-0 font-bold font-mono text-sm">in</span>
+                  <div class="min-w-0 flex-1">
+                    <div class="text-[10px] uppercase text-gray-400 tracking-wider">LinkedIn Connection</div>
+                    <span class="text-xs sm:text-sm font-bold text-white block">
+                      linkedin.com/in/adarsh-singh
+                    </span>
+                  </div>
+                  <a href="#"
+                    class="text-[10px] bg-yellow-400/10 text-yellow-400 px-2 py-1 rounded hover:bg-yellow-400/20 cursor-pointer"
+                    onclick="event.preventDefault(); alert('Redirecting to Adarsh Singh\'s LinkedIn profile.');">
+                    Link
+                  </a>
+                </div>
+
+                <div
+                  class="flex items-center space-x-3 p-3 rounded-xl bg-slate-950/60 border border-white/5 hover:border-purple-400/20 transition-all">
+                  <i data-lucide="code-2" class="w-5 h-5 text-purple-400 flex-shrink-0"></i>
+                  <div class="min-w-0 flex-1">
+                    <div class="text-[10px] uppercase text-gray-400 tracking-wider">GitHub Code Portfolio</div>
+                    <span class="text-xs sm:text-sm font-bold text-white block">
+                      github.com/adarsh-singh
+                    </span>
+                  </div>
+                  <a href="#"
+                    class="text-[10px] bg-purple-400/10 text-purple-400 px-2 py-1 rounded hover:bg-purple-400/20 cursor-pointer"
+                    onclick="event.preventDefault(); alert('Redirecting to Adarsh Singh\'s GitHub portfolio.');">
+                    Code
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- Secure verification indicator -->
+            <div
+              class="mt-8 pt-4 border-t border-white/5 flex items-center space-x-2 text-[11px] text-gray-500 font-mono">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+              <span>Encrypted delivery pipeline active</span>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Contact Form -->
+          <div class="lg:col-span-7 p-6 sm:p-8 rounded-2xl glass-panel border border-white/10 text-left">
+
+            <h3 class="text-lg font-bold text-white mb-4">Send a Direct Secure Message</h3>
+
+            <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <div class="space-y-1">
+                  <label class="text-xs font-mono text-gray-300 block">Your Name <span
+                      class="text-yellow-400">*</span></label>
+                  <input type="text" id="contact-name" required placeholder="e.g. Adarsh"
+                    class="w-full p-3 rounded-xl bg-slate-950 border border-white/10 focus:border-blue-500 text-xs text-white placeholder-gray-500 outline-none transition-colors" />
+                </div>
+
+                <div class="space-y-1">
+                  <label class="text-xs font-mono text-gray-300 block">Your Email <span
+                      class="text-yellow-400">*</span></label>
+                  <input type="email" id="contact-email" required placeholder="e.g. recruiter@company.com"
+                    class="w-full p-3 rounded-xl bg-slate-950 border border-white/10 focus:border-blue-500 text-xs text-white placeholder-gray-500 outline-none transition-colors" />
+                </div>
+
+              </div>
+
+              <div class="space-y-1">
+                <label class="text-xs font-mono text-gray-300 block">Your Detailed Message <span
+                    class="text-yellow-400">*</span></label>
+                <textarea rows="4" id="contact-msg" required
+                  placeholder="Describe your backend requirement or interview details..."
+                  class="w-full p-3 rounded-xl bg-slate-950 border border-white/10 focus:border-blue-500 text-xs text-white placeholder-gray-500 outline-none transition-colors"></textarea>
+              </div>
+
+              <div class="pt-2">
+                <button type="submit" id="contact-submit-btn"
+                  class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-yellow-500 hover:from-blue-500 hover:to-yellow-400 text-sm font-semibold text-white transition-all shadow-md hover:shadow-yellow-400/10 flex items-center justify-center space-x-2 cursor-pointer">
+                  <i data-lucide="send" class="w-4 h-4 text-yellow-300"></i>
+                  <span>Transmit Secure Message</span>
+                </button>
+              </div>
+
+              <div id="contact-success-box"
+                class="hidden p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-mono flex items-center space-x-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
+                <div>
+                  <strong>Message Dispatched Successfully!</strong> Adarsh Singh will get back to you within 24 hours.
+                </div>
+              </div>
+
+              <div class="text-[10px] text-gray-500 text-center font-mono">
+                🔒 Python backend emulated protocol. IP logging is disabled.
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-white/5 py-12 text-sm text-gray-400 font-mono text-center">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+
+          <div class="text-left">
+            <span class="text-white font-bold block text-base">Adarsh Singh</span>
+            <span class="text-xs text-yellow-400">Python Developer | DSA Specialist | Problem Solver</span>
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <a href="mailto:adarshsingh.dev@gmail.com"
+              class="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all"
+              title="Email">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+        </div>
+
+        <div
+          class="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+          <p>© 2026 Adarsh Singh. All rights reserved. Built with modern web standards.</p>
+          <div class="flex space-x-4">
+            <span>Main Stack: Python 3.11</span>
+            <span>FastAPI</span>
+            <span>MySQL</span>
+            <span>DSA Verified</span>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Interactive Javascript Logic -->
+  <script>
+    // Initialize Lucide Icons
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      initSkills();
+      initHeatmap();
+      initProjects();
+      renderDsaStep();
+    });
+
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      });
+    }
+
+    // Interactive Stats Counter
+    const statsState = {
+      solved: 540,
+      projects: 14,
+      skills: 18,
+      hours: 2200
+    };
+
+    function incrementStat(key, amount) {
+      statsState[key] += amount;
+      const el = document.getElementById(`stat-${key}`);
+      if (el) {
+        el.innerText = `${statsState[key]}+`;
+        el.classList.add('scale-110', 'text-yellow-300');
+        setTimeout(() => {
+          el.classList.remove('scale-110', 'text-yellow-300');
+        }, 300);
+      }
+    }
+
+    // Skills Data
+    const skillsData = [
+      { name: 'Python', level: '95%', cat: 'Programming', icon: '🐍', desc: 'Core development, OOP, automated scripts, list comprehensions, generators' },
+      { name: 'C/C++', level: '80%', cat: 'Programming', icon: '⚙️', desc: 'Low-level control, custom structures, fast memory allocation, DSA practice' },
+      { name: 'Arrays & Strings', level: '95%', cat: 'DSA', icon: '📝', desc: 'Two-pointer, sliding window, prefix sums, substring manipulation' },
+      { name: 'Linked Lists', level: '90%', cat: 'DSA', icon: '🔗', desc: 'Singly, doubly, circular, pointer manipulation, Floyd cycle detection' },
+      { name: 'Stacks & Queues', level: '88%', cat: 'DSA', icon: '🥞', desc: 'Monotonic stacks, circular queues, deque implementation' },
+      { name: 'Trees & Graphs', level: '85%', cat: 'DSA', icon: '🌳', desc: 'Binary search trees, AVL, BFS, DFS, Dijkstra, topological sort' },
+      { name: 'Recursion', level: '85%', cat: 'DSA', icon: '🔄', desc: 'Recursion trees, recursive formulations, subset generation' },
+      { name: 'Dynamic Programming', level: '78%', cat: 'DSA', icon: '📈', desc: 'Memoization, tabulation, knapsack, LCS, LIS, grid path optimization' },
+      { name: 'Sorting & Searching', level: '92%', cat: 'DSA', icon: '🔍', desc: 'Quick Sort, Merge Sort, Heap Sort, Binary Search, hash maps' },
+      { name: 'FastAPI', level: '90%', cat: 'Backend', icon: '⚡', desc: 'Modern async Python APIs, automated Pydantic validation, OpenAPI specs' },
+      { name: 'Flask', level: '85%', cat: 'Backend', icon: '🌶️', desc: 'Lightweight WSGI routing, blueprint architecture, Jinja integration' },
+      { name: 'REST APIs', level: '92%', cat: 'Backend', icon: '🌐', desc: 'HTTP methods, status codes, query parameters, request-response modeling' },
+      { name: 'Authentication', level: '85%', cat: 'Backend', icon: '🔐', desc: 'Secure token exchange, password hashing (bcrypt), payload validation' },
+      { name: 'MySQL', level: '88%', cat: 'Database', icon: '🐬', desc: 'Relational design, JOIN query optimization, indexes, foreign keys' },
+      { name: 'MongoDB', level: '80%', cat: 'Database', icon: '🍃', desc: 'NoSQL collections, document schema validation, aggregation pipelines' },
+      { name: 'SQL', level: '85%', cat: 'Database', icon: '📊', desc: 'Complex querying, group-by aggregate functions, subqueries' },
+    ];
+
+    function initSkills(filter = 'All') {
+      const container = document.getElementById('skills-container');
+      if (!container) return;
+      const filtered = filter === 'All' ? skillsData : skillsData.filter(s => s.cat === filter);
+
+      container.innerHTML = filtered.map(skill => `
+          <div class="p-4 rounded-xl glass-panel border border-white/5 hover:border-blue-500/20 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center space-x-2">
+                  <span class="text-lg bg-slate-900 w-8 h-8 rounded-lg flex items-center justify-center border border-white/5">
+                    ${skill.icon}
+                  </span>
+                  <span class="font-semibold text-sm text-gray-200 group-hover:text-white transition-colors">
+                    ${skill.name}
+                  </span>
+                </div>
+                <span class="text-[10px] font-mono text-blue-400 bg-blue-950/40 px-2 py-0.5 rounded">
+                  ${skill.cat}
+                </span>
+              </div>
+              <p class="text-xs text-gray-400 line-clamp-2 min-h-[2rem]">
+                ${skill.desc}
+              </p>
+            </div>
+            
+            <div class="mt-4 pt-3 border-t border-white/5 space-y-1">
+              <div class="flex justify-between items-center text-[10px]">
+                <span class="text-gray-400">Rigor Score</span>
+                <span class="font-mono text-yellow-400">${skill.level}</span>
+              </div>
+              <div class="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-blue-500 to-yellow-400 rounded-full" style="width: ${skill.level}"></div>
+              </div>
+            </div>
+          </div>
+        `).join('');
+    }
+
+    function filterSkills(cat) {
+      document.querySelectorAll('.skill-tab-btn').forEach(btn => {
+        if (btn.innerText.trim() === cat) {
+          btn.className = 'skill-tab-btn active px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-md cursor-pointer';
+        } else {
+          btn.className = 'skill-tab-btn px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-[#0a0f1d] hover:bg-slate-800 text-gray-400 hover:text-white border border-white/5 cursor-pointer';
+        }
+      });
+      initSkills(cat);
+    }
+
+    // Heatmap Grid
+    function initHeatmap() {
+      const grid = document.getElementById('heatmap-container');
+      if (!grid) return;
+      let html = '';
+      for (let i = 0; i < 48; i++) {
+        const color = i % 7 === 0 ? 'bg-blue-900/40' : i % 5 === 0 ? 'bg-blue-600' : i % 3 === 0 ? 'bg-yellow-500' : i % 11 === 0 ? 'bg-emerald-500' : 'bg-[#0f172a]';
+        html += `<div class="h-3 rounded-sm ${color} transition-all hover:scale-125 cursor-pointer" title="Contributions logged at week ${i + 1}"></div>`;
+      }
+      grid.innerHTML = html;
+    }
+
+    // Projects Data
+    const projectsData = [
+      {
+        id: 'pyroute-visualizer',
+        title: 'PyRoute Graph Visualizer',
+        category: 'DSA & Algorithms',
+        imageDesc: 'Interactive pathfinding algorithm system showcasing real-time weight adjustments',
+        desc: 'An advanced interactive pathfinding platform built with Python (FastAPI backend) implementing Dijkstra, A* Search, and Kruskal algorithms on customizable maps.',
+        tech: ['Python', 'FastAPI', 'NetworkX', 'Graph Theory', 'WebSockets', 'TailwindCSS'],
+        github: '#',
+        live: '#',
+        codeSnippet: `import heapq\n\ndef dijkstra(graph, start, end):\n    queue = [(0, start)]\n    visited = {start: 0}\n    while queue:\n        (dist, node) = heapq.heappop(queue)\n        if node == end: return dist\n        # Process adjacent graph nodes...`
+      },
+      {
+        id: 'algo-analytics-api',
+        title: 'RESTful Algorithmic Analytics API',
+        category: 'Backend',
+        imageDesc: 'Abstract Syntax Tree parser and execution timing middleware metrics dashboard',
+        desc: 'A robust sandboxed REST API that provides abstract syntax tree (AST) static code analysis, time complexity estimation (O-Notation detection), and runtime validation for Python scripts.',
+        tech: ['Python', 'Flask', 'Docker Sandbox', 'AST Parser', 'Redis Queue', 'Swagger'],
+        github: '#',
+        live: '#',
+        codeSnippet: `import ast\n\nclass ComplexityAnalyzer(ast.NodeVisitor):\n    def visit_For(self, node):\n        self.loops += 1\n        self.generic_visit(node)`
+      },
+      {
+        id: 'pysecure-gateway',
+        title: 'PySecure OAuth2 Gateway',
+        category: 'Backend',
+        imageDesc: 'Token lifecycle visual flow and encrypted user password storage module',
+        desc: 'A custom JSON Web Token (JWT) identity and authentication microservice. Features password salting-hashing (bcrypt), automatic rate-limiting, and dual-layer token validation.',
+        tech: ['Python', 'FastAPI', 'JWT Auth', 'MongoDB', 'Pytest', 'Docker'],
+        github: '#',
+        live: '#',
+        codeSnippet: `from jose import jwt\nfrom passlib.context import CryptContext\n\npwd_context = CryptContext(schemes=["bcrypt"])\ndef verify_password(plain, hashed):\n    return pwd_context.verify(plain, hashed)`
+      },
+      {
+        id: 'smart-shelf-invento',
+        title: 'Smart-Shelf Database Engine',
+        category: 'Database & Systems',
+        imageDesc: 'Relational database architecture diagram and recursive inventory levels',
+        desc: 'An inventory tracking database management solution implementing custom index sorting, binary search indexes for catalog items, and optimized multi-join MySQL queries.',
+        tech: ['Python', 'MySQL', 'SQLAlchemy', 'Tkinter UI', 'Data Modeling'],
+        github: '#',
+        live: '#',
+        codeSnippet: `from sqlalchemy import create_engine, Column, Integer, String\n\nclass InventoryItem(Base):\n    __tablename__ = 'items'\n    id = Column(Integer, primary_key=True)\n    sku = Column(String(50), index=True)`
+      }
+    ];
+
+    function initProjects(filter = 'All') {
+      const container = document.getElementById('projects-container');
+      if (!container) return;
+      const filtered = filter === 'All' ? projectsData : projectsData.filter(p => p.category.includes(filter) || filter.includes(p.category));
+
+      container.innerHTML = filtered.map(project => `
+          <div class="rounded-2xl glass-panel border border-white/10 overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/5">
+            <div class="bg-[#050b18] p-4 relative border-b border-white/5 flex flex-col justify-between min-h-[160px] font-mono text-[10px] overflow-hidden">
+              <div class="flex justify-between items-center mb-2 z-10">
+                <span class="px-2 py-0.5 rounded bg-slate-900 text-yellow-400 border border-yellow-400/20 text-[10px]">
+                  ${project.category}
+                </span>
+                <span class="text-[10px] text-gray-500 flex items-center space-x-1">
+                  <i data-lucide="terminal" class="w-3 h-3 text-blue-400"></i>
+                  <span>${project.id}.py</span>
+                </span>
+              </div>
+              <div class="bg-slate-950/90 rounded p-3 text-gray-300 border border-white/5 overflow-x-auto max-h-28 my-2">
+                <pre class="text-emerald-400 font-bold">// Code Source Extract:</pre>
+                <pre class="text-blue-300">${project.codeSnippet}</pre>
+              </div>
+              <div class="flex justify-between items-center mt-2 z-10 text-[9px] text-gray-400">
+                <span class="flex items-center space-x-1">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                  <span>Execution Ready</span>
+                </span>
+                <span class="italic text-gray-500">"${project.imageDesc}"</span>
+              </div>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="space-y-1">
+                <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                  ${project.title}
+                </h3>
+                <p class="text-xs text-gray-400 leading-relaxed min-h-[3rem]">
+                  ${project.desc}
+                </p>
+              </div>
+              <div class="space-y-1">
+                <span class="text-[10px] font-mono text-gray-500 uppercase tracking-widest block">Stack Deployment</span>
+                <div class="flex flex-wrap gap-1.5">
+                  ${project.tech.map(t => `<span class="px-2 py-0.5 rounded bg-slate-900 text-gray-300 text-[10px] font-mono border border-white/5">${t}</span>`).join('')}
+                </div>
+              </div>
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                <a href="#" onclick="event.preventDefault(); alert('Academic repository evaluated for ${project.title}.');" class="inline-flex items-center space-x-1.5 text-xs text-gray-300 hover:text-white transition-colors">
+                  <i data-lucide="code-2" class="w-4 h-4 text-gray-400"></i>
+                  <span>Code Repository</span>
+                </a>
+                <a href="#" onclick="event.preventDefault(); alert('Simulated live demo payload processed.');" class="inline-flex items-center space-x-1 text-xs text-yellow-400 hover:text-yellow-300 transition-colors font-medium">
+                  <span>Simulate Demo</span>
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+      lucide.createIcons();
+    }
+
+    function filterProjects(cat) {
+      document.querySelectorAll('.project-tab-btn').forEach(btn => {
+        if (btn.innerText.trim() === cat) {
+          btn.className = 'project-tab-btn active px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-gradient-to-r from-blue-600 to-yellow-500 text-white shadow-md cursor-pointer';
+        } else {
+          btn.className = 'project-tab-btn px-4 py-2 rounded-lg text-xs font-medium tracking-wide transition-all bg-[#0a0f1d] hover:bg-slate-800 text-gray-400 hover:text-white border border-white/5 cursor-pointer';
+        }
+      });
+      initProjects(cat);
+    }
+
+    // DSA Simulation State
+    const dsaList = [
+      {
+        id: 'binary-search',
+        name: 'Binary Search (Python)',
+        complexity: 'Time: O(log N) | Space: O(1)',
+        code: `def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+    
+    while low <= high:
+        mid = (low + high) // 2
+        guess = arr[mid]
+        
+        if guess == target:
+            return mid # Target Found!
+        if guess > target:
+            high = mid - 1
+        else:
+            low = mid + 1
+    return -1 # Not Found`,
+        steps: [
+          { arr: [2, 5, 8, 12, 16, 23, 38, 56, 72, 91], low: 0, high: 9, mid: 4, desc: "Initial state. target = 23. Calculating middle index: mid = (0 + 9) // 2 = 4 (value: 16)." },
+          { arr: [2, 5, 8, 12, 16, 23, 38, 56, 72, 91], low: 5, high: 9, mid: 7, desc: "Since 16 < 23, target is on the right. Setting low = mid + 1 = 5. New mid = (5 + 9) // 2 = 7 (value: 56)." },
+          { arr: [2, 5, 8, 12, 16, 23, 38, 56, 72, 91], low: 5, high: 6, mid: 5, desc: "Since 56 > 23, target is on the left. Setting high = mid - 1 = 6. New mid = (5 + 6) // 2 = 5 (value: 23)." },
+          { arr: [2, 5, 8, 12, 16, 23, 38, 56, 72, 91], low: 5, high: 6, mid: 5, desc: "Success! arr[5] (23) matches target. Returning index 5." }
+        ]
+      },
+      {
+        id: 'quick-sort',
+        name: 'Partition Step (Python)',
+        complexity: 'Time: O(N log N) | Space: O(log N)',
+        code: `def partition(arr, low, high):
+    pivot = arr[high] # Choosing right element
+    i = low - 1
+    
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+            
+    arr[i+1], arr[high] = arr[high], arr[i+1]
+    return i + 1`,
+        steps: [
+          { arr: [10, 30, 80, 90, 40, 50, 70], i: -1, j: 0, desc: "Start partition with pivot = 70. Element arr[0]=10 is <= 70. Increment i and swap." },
+          { arr: [10, 30, 80, 90, 40, 50, 70], i: 1, j: 2, desc: "arr[2]=30 is <= 70. Increment i to 1 and swap 80 and 30." },
+          { arr: [10, 30, 40, 90, 80, 50, 70], i: 2, j: 4, desc: "arr[4]=40 is <= 70. Increment i to 2 and swap 80 and 40." },
+          { arr: [10, 30, 40, 50, 80, 90, 70], i: 3, j: 5, desc: "arr[5]=50 is <= 70. Increment i to 3 and swap 90 and 50." },
+          { arr: [10, 30, 40, 50, 70, 90, 80], i: 4, j: 6, desc: "End of loop. Place pivot in correct position by swapping arr[i+1] with pivot (70)." }
+        ]
+      },
+      {
+        id: 'dijkstra',
+        name: "Dijkstra's Relaxation (Python)",
+        complexity: 'Time: O((V + E) log V) | Space: O(V)',
+        code: `def relax_edges(graph, current_node, distances, min_heap):
+    for neighbor, weight in graph[current_node].items():
+        distance = distances[current_node] + weight
+        if distance < distances[neighbor]:
+            distances[neighbor] = distance
+            heapq.heappush(min_heap, (distance, neighbor))`,
+        steps: [
+          { arr: ['A: 0', 'B: ∞', 'C: ∞', 'D: ∞'], desc: "Starting node A. Distance to A is 0. Neighbors: B (weight 4) and C (weight 2)." },
+          { arr: ['A: 0', 'B: 4', 'C: 2', 'D: ∞'], desc: "Relaxing neighbor weights. Distance to B updated to 4, C updated to 2. Select C." },
+          { arr: ['A: 0', 'B: 3', 'C: 2', 'D: 5'], desc: "From C, relaxing neighbors. Neighbor B updated from 4 to 3 (path A->C->B). Neighbor D updated to 5." },
+          { arr: ['A: 0', 'B: 3', 'C: 2', 'D: 5'], desc: "All reachable node distances resolved. Minimal paths are fully verified." }
+        ]
+      }
+    ];
+
+    let currentDsaIndex = 0;
+    let currentDsaStep = 0;
+
+    function setSimulation(idx) {
+      currentDsaIndex = idx;
+      currentDsaStep = 0;
+      [0, 1, 2].forEach(i => {
+        const btn = document.getElementById(`dsa-btn-${i}`);
+        if (btn) {
+          if (i === idx) {
+            btn.className = 'px-3 py-1 rounded text-[11px] font-mono font-bold bg-blue-600 text-white shadow cursor-pointer';
+          } else {
+            btn.className = 'px-3 py-1 rounded text-[11px] font-mono font-bold text-gray-400 hover:text-white hover:bg-white/5 cursor-pointer';
+          }
+        }
+      });
+      renderDsaStep();
+    }
+
+    function renderDsaStep() {
+      const cur = dsaList[currentDsaIndex];
+      const step = cur.steps[currentDsaStep];
+
+      document.getElementById('dsa-name').innerText = cur.name;
+      document.getElementById('dsa-complexity').innerText = cur.complexity;
+      document.getElementById('dsa-code').innerText = cur.code;
+      document.getElementById('dsa-step-count').innerText = `Execution Step ${currentDsaStep + 1} of ${cur.steps.length}`;
+      document.getElementById('dsa-step-desc').innerHTML = `<strong>Step Logic:</strong> ${step.desc}`;
+
+      const visualArray = document.getElementById('dsa-visual-array');
+      visualArray.innerHTML = step.arr.map((val, i) => {
+        let isHighlight = false;
+        let isPointer = false;
+        if (cur.id === 'binary-search') {
+          if (i === step.mid) isHighlight = true;
+          if (i === step.low || i === step.high) isPointer = true;
+        } else if (cur.id === 'quick-sort') {
+          if (i === 6) isHighlight = true;
+          if (i === step.i || i === step.j) isPointer = true;
+        }
+        return `
+            <div class="w-10 h-10 rounded-lg flex flex-col items-center justify-center text-xs font-mono font-bold transition-all ${isHighlight
+            ? 'bg-yellow-400 text-black scale-110 shadow-lg shadow-yellow-400/20'
+            : isPointer
+              ? 'bg-blue-600 text-white border border-blue-300'
+              : 'bg-slate-900 text-gray-400 border border-white/5'
+          }">
+              <span>${val}</span>
+              ${cur.id === 'binary-search' ? `<span class="text-[7px] text-gray-500 uppercase mt-0.5">${i === step.mid ? 'mid' : i === step.low ? 'low' : i === step.high ? 'high' : `i:${i}`}</span>` : ''}
+            </div>
+          `;
+      }).join('');
+    }
+
+    function nextDsaStep() {
+      const cur = dsaList[currentDsaIndex];
+      if (currentDsaStep < cur.steps.length - 1) {
+        currentDsaStep++;
+      } else {
+        currentDsaStep = 0;
+      }
+      renderDsaStep();
+    }
+
+    function prevDsaStep() {
+      const cur = dsaList[currentDsaIndex];
+      if (currentDsaStep > 0) {
+        currentDsaStep--;
+      } else {
+        currentDsaStep = cur.steps.length - 1;
+      }
+      renderDsaStep();
+    }
+
+    function resetDsaStep() {
+      currentDsaStep = 0;
+      renderDsaStep();
+    }
+
+    // Recruiter Personalizer
+    function toggleRecruiterConfig() {
+      const fields = document.getElementById('recruiter-fields');
+      const btn = document.getElementById('toggle-recruiter-btn');
+      if (fields.classList.contains('hidden')) {
+        fields.classList.remove('hidden');
+        btn.innerHTML = '<span>Collapse Config</span>';
+      } else {
+        fields.classList.add('hidden');
+        btn.innerHTML = '<span>Expand Customizer</span>';
+      }
+    }
+
+    function updateRecruiterPreview() {
+      const name = document.getElementById('recruiter-input-name').value.trim();
+      const msg = document.getElementById('recruiter-input-msg').value.trim();
+      const badge = document.getElementById('resume-recruiter-badge');
+      if (name) {
+        badge.classList.remove('hidden');
+        badge.innerHTML = `👋 Custom Greeting for: <strong>${name}</strong>${msg ? `<div class="mt-0.5 text-xs italic">Message: "${msg}"</div>` : ''}`;
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    // Contact Form Submission
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('contact-submit-btn');
+      const success = document.getElementById('contact-success-box');
+
+      btn.disabled = true;
+      btn.innerHTML = '<div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div><span>Synthesizing Payload...</span>';
+
+      setTimeout(() => {
+        btn.classList.add('hidden');
+        success.classList.remove('hidden');
+        document.getElementById('contact-name').value = '';
+        document.getElementById('contact-email').value = '';
+        document.getElementById('contact-msg').value = '';
+
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.classList.remove('hidden');
+          btn.innerHTML = '<i data-lucide="send" class="w-4 h-4 text-yellow-300"></i><span>Transmit Secure Message</span>';
+          success.classList.add('hidden');
+          lucide.createIcons();
+        }, 5000);
+      }, 1200);
+    }
+  </script>
+</body>
+
+</html>

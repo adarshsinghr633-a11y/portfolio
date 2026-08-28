@@ -21,7 +21,8 @@ import {
   Info, 
   MapPin, 
   User, 
-  Sliders
+  Sliders,
+  Phone
 } from 'lucide-react';
 
 // Custom inline SVG icons to prevent any Lucide version conflicts
@@ -287,7 +288,7 @@ export default function App() {
       imageDesc: 'Interactive pathfinding algorithm system showcasing real-time weight adjustments',
       desc: 'An advanced interactive pathfinding platform built with Python (FastAPI backend) implementing Dijkstra, A* Search, and Kruskal algorithms on customizable maps. Users can visually block paths and see immediate structural updates.',
       tech: ['Python', 'FastAPI', 'NetworkX', 'Graph Theory', 'WebSockets', 'TailwindCSS'],
-      github: '#',
+      github: 'https://github.com/adarshsinghr633-a11y',
       live: '#',
       featured: true,
       codeSnippet: `import heapq\n\ndef dijkstra(graph, start, end):\n    queue = [(0, start)]\n    visited = {start: 0}\n    while queue:\n        (dist, node) = heapq.heappop(queue)\n        if node == end: return dist\n        # Process adjacent graph nodes...`
@@ -299,7 +300,7 @@ export default function App() {
       imageDesc: 'Abstract Syntax Tree parser and execution timing middleware metrics dashboard',
       desc: 'A robust sandboxed REST API that provides abstract syntax tree (AST) static code analysis, time complexity estimation (O-Notation detection), and runtime validation for Python & C++ scripts.',
       tech: ['Python', 'Flask', 'Docker Sandbox', 'AST Parser', 'Redis Queue', 'Swagger'],
-      github: '#',
+      github: 'https://github.com/adarshsinghr633-a11y',
       live: '#',
       featured: true,
       codeSnippet: `import ast\n\nclass ComplexityAnalyzer(ast.NodeVisitor):\n    def visit_For(self, node):\n        self.loops += 1\n        self.generic_visit(node)`
@@ -311,7 +312,7 @@ export default function App() {
       imageDesc: 'Token lifecycle visual flow and encrypted user password storage module',
       desc: 'A custom JSON Web Token (JWT) identity and authentication microservice. Features password salting-hashing (bcrypt), automatic rate-limiting, and dual-layer token validation for multi-tenant microservices.',
       tech: ['Python', 'FastAPI', 'JWT Auth', 'MongoDB', 'Pytest', 'Docker'],
-      github: '#',
+      github: 'https://github.com/adarshsinghr633-a11y',
       live: '#',
       featured: false,
       codeSnippet: `from jose import jwt\nfrom passlib.context import CryptContext\n\npwd_context = CryptContext(schemes=["bcrypt"])\ndef verify_password(plain, hashed):\n    return pwd_context.verify(plain, hashed)`
@@ -323,7 +324,7 @@ export default function App() {
       imageDesc: 'Relational relational database architecture diagram and recursive inventory levels',
       desc: 'An inventory tracking database management solution implementing custom index sorting, binary search indexes for catalog items, and optimized multi-join MySQL queries with beautiful dynamic reporting.',
       tech: ['Python', 'MySQL', 'SQLAlchemy', 'Tkinter UI', 'Data Modeling'],
-      github: '#',
+      github: 'https://github.com/adarshsinghr633-a11y',
       live: '#',
       featured: false,
       codeSnippet: `from sqlalchemy import create_engine, Column, Integer, String\n\nclass InventoryItem(Base):\n    __tablename__ = 'items'\n    id = Column(Integer, primary_key=True)\n    sku = Column(String(50), index=True)`
@@ -335,7 +336,7 @@ export default function App() {
       imageDesc: 'Dynamic programming matrix visualization and automated caching tier',
       desc: 'Planned Future Python Project. A specialized multidimensional matrix indexing accelerator designed to parse heavy algorithmic weights faster using low-level memory block optimizations.',
       tech: ['Python Core', 'NumPy', 'Cache Decorators', 'Dynamic Programming'],
-      github: '#',
+      github: 'https://github.com/adarshsinghr633-a11y',
       live: '#',
       featured: false,
       codeSnippet: `@lru_cache(maxsize=1024)\ndef parse_matrix_index(dp_state, weight_vector):\n    # Optimized Dynamic Programming transition state`
@@ -527,6 +528,46 @@ export default function App() {
                 </a>
               </div>
 
+              {/* Quick Connect & Social Pills */}
+              <div className="flex flex-wrap items-center gap-2.5 pt-2">
+                <a
+                  href="https://github.com/adarshsinghr633-a11y"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-900/80 hover:bg-purple-950/80 border border-white/10 hover:border-purple-500/40 text-xs font-mono text-gray-300 hover:text-purple-300 transition-all shadow-sm group"
+                  title="GitHub Profile"
+                >
+                  <GithubIcon className="w-3.5 h-3.5 text-purple-400 group-hover:scale-110 transition-transform" />
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/adarsh-singh-345a69348?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-900/80 hover:bg-blue-950/80 border border-white/10 hover:border-blue-500/40 text-xs font-mono text-gray-300 hover:text-blue-300 transition-all shadow-sm group"
+                  title="LinkedIn Profile"
+                >
+                  <LinkedinIcon className="w-3.5 h-3.5 text-blue-400 group-hover:scale-110 transition-transform" />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="mailto:adarshsinghr633@gmail.com"
+                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-900/80 hover:bg-yellow-950/80 border border-white/10 hover:border-yellow-500/40 text-xs font-mono text-gray-300 hover:text-yellow-300 transition-all shadow-sm group"
+                  title="Send Direct Email"
+                >
+                  <Mail className="w-3.5 h-3.5 text-yellow-400 group-hover:scale-110 transition-transform" />
+                  <span>Email</span>
+                </a>
+                <a
+                  href="tel:+917060909941"
+                  className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-900/80 hover:bg-emerald-950/80 border border-white/10 hover:border-emerald-500/40 text-xs font-mono text-gray-300 hover:text-emerald-300 transition-all shadow-sm group"
+                  title="Call: +91 7060909941"
+                >
+                  <Phone className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
+                  <span>+91 7060909941</span>
+                </a>
+              </div>
+
               {/* Code tags */}
               <div className="pt-2 text-xs font-mono text-gray-500 flex items-center space-x-3">
                 <span>$ python --version</span>
@@ -564,6 +605,9 @@ export default function App() {
                     <p className="text-blue-300">class <span className="text-yellow-300">PythonDeveloper</span>:</p>
                     <p className="text-blue-400">    def __init__(self):</p>
                     <p className="text-purple-300">        self.name = <span className="text-emerald-400">"Adarsh Singh"</span></p>
+                    <p className="text-purple-300">        self.email = <span className="text-emerald-400">"adarshsinghr633@gmail.com"</span></p>
+                    <p className="text-purple-300">        self.phone = <span className="text-emerald-400">"+91-7060909941"</span></p>
+                    <p className="text-purple-300">        self.github = <span className="text-emerald-400">"adarshsinghr633-a11y"</span></p>
                     <p className="text-purple-300">        self.focus_areas = [<span className="text-emerald-400">"Backend"</span>, <span className="text-emerald-400">"DSA"</span>, <span className="text-emerald-400">"Problem Solving"</span>]</p>
                     <p className="text-purple-300">        self.primary_lang = <span className="text-emerald-400">"Python"</span></p>
                     <p className="text-purple-300">        self.dsa_platforms = [<span className="text-emerald-400">"LeetCode"</span>, <span className="text-emerald-400">"Codeforces"</span>]</p>
@@ -1493,10 +1537,21 @@ export default function App() {
                   <p className="text-[10px] font-mono text-blue-600 font-bold uppercase tracking-widest mt-0.5">
                     Python Developer | DSA Enthusiast
                   </p>
-                  <div className="flex justify-center space-x-2 text-[9px] text-gray-500 mt-1">
-                    <span>Python Backend Focus</span>
+                  <div className="flex flex-wrap justify-center gap-x-2 text-[9px] text-gray-600 mt-1.5 font-mono">
+                    <span>adarshsinghr633@gmail.com</span>
                     <span>•</span>
-                    <span>CSE Major Student</span>
+                    <span>+91 7060909941</span>
+                    <span>•</span>
+                    <span>India</span>
+                  </div>
+                  <div className="flex flex-wrap justify-center gap-x-2 text-[9px] text-blue-600 mt-1 font-mono">
+                    <a href="https://github.com/adarshsinghr633-a11y" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                      github.com/adarshsinghr633-a11y
+                    </a>
+                    <span>•</span>
+                    <a href="https://www.linkedin.com/in/adarsh-singh-345a69348?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                      linkedin.com/in/adarsh-singh
+                    </a>
                   </div>
                 </div>
 
@@ -1602,12 +1657,28 @@ export default function App() {
                     <Mail className="w-5 h-5 text-blue-400 flex-shrink-0" />
                     <div className="min-w-0 flex-1">
                       <div className="text-[10px] uppercase text-gray-400 tracking-wider">Email Direct Address</div>
-                      <a href="mailto:adarshsingh.dev@gmail.com" className="text-xs sm:text-sm font-bold text-white hover:text-blue-400 block truncate">
-                        adarshsingh.dev@gmail.com
+                      <a href="mailto:adarshsinghr633@gmail.com" className="text-xs sm:text-sm font-bold text-white hover:text-blue-400 block truncate">
+                        adarshsinghr633@gmail.com
                       </a>
                     </div>
                     <button 
-                      onClick={() => copyToClipboard('adarshsingh.dev@gmail.com')}
+                      onClick={() => copyToClipboard('adarshsinghr633@gmail.com')}
+                      className="text-[10px] bg-slate-900 text-gray-400 hover:text-white px-2 py-1 rounded cursor-pointer"
+                    >
+                      {copiedText ? 'Copied' : 'Copy'}
+                    </button>
+                  </div>
+
+                  <div className="flex items-center space-x-3 p-3 rounded-xl bg-slate-950/60 border border-white/5 hover:border-emerald-500/20 transition-all">
+                    <Phone className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                    <div className="min-w-0 flex-1">
+                      <div className="text-[10px] uppercase text-gray-400 tracking-wider">Phone / WhatsApp</div>
+                      <a href="tel:+917060909941" className="text-xs sm:text-sm font-bold text-white hover:text-emerald-400 block truncate">
+                        +91 7060909941
+                      </a>
+                    </div>
+                    <button 
+                      onClick={() => copyToClipboard('7060909941')}
                       className="text-[10px] bg-slate-900 text-gray-400 hover:text-white px-2 py-1 rounded cursor-pointer"
                     >
                       {copiedText ? 'Copied' : 'Copy'}
@@ -1620,19 +1691,23 @@ export default function App() {
                     </span>
                     <div className="min-w-0 flex-1">
                       <div className="text-[10px] uppercase text-gray-400 tracking-wider">LinkedIn Connection</div>
-                      <span className="text-xs sm:text-sm font-bold text-white block">
-                        linkedin.com/in/adarsh-singh
-                      </span>
+                      <a 
+                        href="https://www.linkedin.com/in/adarsh-singh-345a69348?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs sm:text-sm font-bold text-white hover:text-yellow-400 block truncate"
+                      >
+                        linkedin.com/in/adarsh-singh-345a69348
+                      </a>
                     </div>
                     <a 
-                      href="#" 
-                      className="text-[10px] bg-yellow-400/10 text-yellow-400 px-2 py-1 rounded hover:bg-yellow-400/20 cursor-pointer"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        alert("Redirecting to Adarsh Singh's professional LinkedIn profile.");
-                      }}
+                      href="https://www.linkedin.com/in/adarsh-singh-345a69348?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[10px] bg-yellow-400/10 text-yellow-400 px-2.5 py-1 rounded hover:bg-yellow-400/20 cursor-pointer inline-flex items-center space-x-1"
                     >
-                      Link
+                      <span>Connect</span>
+                      <ExternalLink className="w-2.5 h-2.5" />
                     </a>
                   </div>
 
@@ -1642,19 +1717,23 @@ export default function App() {
                     </span>
                     <div className="min-w-0 flex-1">
                       <div className="text-[10px] uppercase text-gray-400 tracking-wider">GitHub Code Portfolio</div>
-                      <span className="text-xs sm:text-sm font-bold text-white block">
-                        github.com/adarsh-singh
-                      </span>
+                      <a 
+                        href="https://github.com/adarshsinghr633-a11y"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs sm:text-sm font-bold text-white hover:text-purple-400 block truncate"
+                      >
+                        github.com/adarshsinghr633-a11y
+                      </a>
                     </div>
                     <a 
-                      href="#" 
-                      className="text-[10px] bg-purple-400/10 text-purple-400 px-2 py-1 rounded hover:bg-purple-400/20 cursor-pointer"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        alert("Redirecting to Adarsh Singh's custom GitHub repository collection.");
-                      }}
+                      href="https://github.com/adarshsinghr633-a11y" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[10px] bg-purple-400/10 text-purple-400 px-2.5 py-1 rounded hover:bg-purple-400/20 cursor-pointer inline-flex items-center space-x-1"
                     >
-                      Code
+                      <span>Explore</span>
+                      <ExternalLink className="w-2.5 h-2.5" />
                     </a>
                   </div>
 
@@ -1802,29 +1881,38 @@ export default function App() {
             </div>
 
             {/* Social Icons list */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3">
               <a 
-                href="#" 
-                className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all"
-                title="GitHub"
-                onClick={(e) => { e.preventDefault(); alert("Redirecting to Adarsh Singh's code repositories."); }}
+                href="https://github.com/adarshsinghr633-a11y" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all text-gray-400"
+                title="GitHub - adarshsinghr633-a11y"
               >
                 <GithubIcon className="w-4 h-4" />
               </a>
               <a 
-                href="#" 
-                className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all"
-                title="LinkedIn"
-                onClick={(e) => { e.preventDefault(); alert("Redirecting to Adarsh Singh's professional network."); }}
+                href="https://www.linkedin.com/in/adarsh-singh-345a69348?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all text-gray-400"
+                title="LinkedIn - Adarsh Singh"
               >
                 <LinkedinIcon className="w-4 h-4" />
               </a>
               <a 
-                href="mailto:adarshsingh.dev@gmail.com" 
-                className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all"
-                title="Email"
+                href="mailto:adarshsinghr633@gmail.com" 
+                className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition-all text-gray-400"
+                title="Email - adarshsinghr633@gmail.com"
               >
                 <Mail className="w-4 h-4" />
+              </a>
+              <a 
+                href="tel:+917060909941" 
+                className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-all text-gray-400"
+                title="Call - +91 7060909941"
+              >
+                <Phone className="w-4 h-4" />
               </a>
             </div>
 
